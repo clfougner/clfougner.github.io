@@ -105,6 +105,10 @@ header{
     background: RGB(43, 56, 71);
 }
 
-a:visited {
+a, a:visited, a:hover{
     color:inherit;
+}
+
+a:active{
+    padding-top: 2px;
 }
