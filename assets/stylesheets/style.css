@@ -51,7 +51,6 @@ table {
 
 h1 {
     margin-left: 2%;
-    margin-bottom: 1%;
     padding: 2%;
     font-size:40px;
     font-family: "Helvetica Neue";
@@ -68,6 +67,8 @@ h3 {
     margin-top:2%;
     font-size:26px;
     font-family: "Helvetica Neue";
+    color:darkcyan;
+    
 }
 
 h4 {
@@ -91,6 +92,14 @@ p {
     font-family: "Helvetica Neue";
 }
 
+#posteddate{
+    padding:2%;
+    font-size:12px;
+    font-family: "Helvetica Neue";
+    color:dimgrey;
+}
+
+
 hr{
     margin-left: 20%;
     margin-right:20%;
@@ -103,6 +112,10 @@ hr{
 
 header{
     background: RGB(43, 56, 71);
+}
+
+body{
+    background-color: #f6f6ef
 }
 
 a, a:visited, a:hover{
