@@ -48,68 +48,18 @@ table {
 }
 /* End reset everything */
 
+/*
+  ========================================
+  Divisions
+  ========================================
+*/
 
-h1 {
-    margin-left: 2%;
-    padding: 2%;
-    font-size:40px;
-    font-family: "Helvetica Neue";
-    color:white;
-}
-
-h2 {
-    font-size:32px;
-}
-
-h3 {
-    margin-left: 2%;
-    margin-bottom: 1%;
-    margin-top:2%;
-    font-size:26px;
-    font-family: "Helvetica Neue";
-    color:darkcyan;
-    
-}
-
-h4 {
-    margin-left: 2%;
-    margin-bottom: 1%;
-    font-size:20px;
-    font-family: "Helvetica Neue";
-}
-
-h5 {
-    margin-left: 1%;
-    font-size:16px;
-    font-family: "Helvetica Neue";
-    color:white;
+html{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 p {
     font-size: 14px;
-    font-family: "Helvetica Neue";
-}
-
-#posteddate{
-    margin-left: 3%;
-    padding:2%;
-    font-size:12px;
-    font-family: "Helvetica Neue";
-    color:dimgrey;
-}
-
-.blogpost {
-    margin-left: 2%;
-    margin-right:10%;
-}
-
-hr{
-    margin-left: 20%;
-    margin-right:20%;
-    margin-bottom: 2%;
-    margin-top: 0%;
-    color: grey;
-    border-style: solid;   
 }
 
 header{
@@ -120,10 +70,129 @@ body{
     background-color: #f6f6ef;
 }
 
-a, a:visited, a:hover{
+/*
+  ========================================
+  Headers
+  ========================================
+*/
+
+h1 {
+    font-size:40px;
+}
+
+h2 {
+    font-size:32px;
+}
+
+h3 {
+    font-size:26px;
+}
+
+h4 {
+    margin-left: 2%;
+    margin-bottom: 1%;
+    font-size:20px;
+}
+
+h5 {
+    font-size:16px;
+}
+
+/*
+  ========================================
+  Images
+  ========================================
+*/
+
+img{
+    float:left;
+}
+
+/*
+  ========================================
+  Links
+  ========================================
+*/
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited{
     color:inherit;
+}
+
+a:hover{
+    text-decoration:underline !important;
 }
 
 a:active{
     padding-top: 2px;
 }
+
+/*
+  ========================================
+  Classes
+  ========================================
+*/
+.herotitle {
+    margin-left: 2%;
+    padding: 2%;
+    color:white;
+    clear:both;
+}
+
+.navtext{
+    padding:2%;
+    color:white;
+    float:left;
+}
+
+.blogtitle{
+    margin-left: 2%;
+    margin-bottom: 1%;
+    margin-top:2%;
+    color:RGB(0, 139, 139);
+}
+
+.blogtitle a:visited{
+    color:RGB(0, 139, 39);
+
+}
+
+.blogtext {
+    margin-left: 2%;
+    margin-right:10%;
+    line-height: 150%;
+}
+
+
+/*
+  ========================================
+  IDs
+  ========================================
+*/
+#posteddate{
+    margin-left: 3%;
+    padding:2%;
+    font-size:12px;
+    color:dimgrey;
+    font-style:italic;
+}
+
+/*
+  ========================================
+  Other
+  ========================================
+*/
+
+hr{
+    margin-left: 20%;
+    margin-right:20%;
+    margin-bottom: 2%;
+    margin-top: 0%;
+    color: grey;
+    border-style: solid;   
+}
+
+
