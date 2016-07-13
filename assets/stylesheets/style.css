@@ -86,23 +86,24 @@ h5 {
 }
 
 p {
-    margin-left: 2%;
-    margin-right:10%;
     font-size: 14px;
     font-family: "Helvetica Neue";
 }
 
 #posteddate{
+    
     padding:2%;
     font-size:12px;
     font-family: "Helvetica Neue";
     color:dimgrey;
 }
 
+.blogpost {
+    margin-left: 2%;
+    margin-right:10%;
+}
 
 hr{
-    margin-left: 20%;
-    margin-right:20%;
     margin-bottom: 2%;
     margin-top: 0%;
     color: grey;
@@ -115,7 +116,7 @@ header{
 }
 
 body{
-    background-color: #f6f6ef
+    background-color: #f6f6ef;
 }
 
 a, a:visited, a:hover{
