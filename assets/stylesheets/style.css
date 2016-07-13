@@ -91,7 +91,7 @@ p {
 }
 
 #posteddate{
-    
+    margin-left: 3%;
     padding:2%;
     font-size:12px;
     font-family: "Helvetica Neue";
@@ -104,11 +104,12 @@ p {
 }
 
 hr{
+    margin-left: 20%;
+    margin-right:20%;
     margin-bottom: 2%;
     margin-top: 0%;
     color: grey;
-    border-style: solid;
-        
+    border-style: solid;   
 }
 
 header{
