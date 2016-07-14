@@ -108,6 +108,7 @@ h5 {
 
 img{
     float:left;
+    padding:1%;
 }
 
 /*
@@ -118,6 +119,7 @@ img{
 
 a:link {
     text-decoration: none;
+    color:inherit;
 }
 
 a:visited{
@@ -145,9 +147,21 @@ a:active{
 }
 
 .navtext{
-    padding:2%;
     color:white;
     float:left;
+    border-radius: 0px 0px 3px 3px;
+    display:block;
+}
+
+.navtext:hover{
+    background-color:RGB(0, 139, 139);
+}
+
+.navtext a{
+    display: inline-block;     
+    position: relative;    
+    z-index: 1;     
+    padding: 15px;     
 }
 
 .blogtitle{
