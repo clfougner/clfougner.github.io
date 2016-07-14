@@ -55,7 +55,7 @@ table {
 */
 
 html{
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
 p {
@@ -65,10 +65,11 @@ p {
 header{
     background: RGB(43, 56, 71);
     box-shadow: 0px 2px 1px #888888;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, .3);
 }
 
 body{
-    background-color: #f6f6ef;
+    background-color: #fdfdfd;
 }
 
 /*
@@ -79,7 +80,6 @@ body{
 
 h1 {
     font-size:40px;
-    text-shadow: 3px 6px 2px rgba(0, 0, 0, .3);
 }
 
 h2 {
@@ -98,7 +98,6 @@ h4 {
 
 h5 {
     font-size:16px;
-    text-shadow: 3px 6px 2px rgba(0, 0, 0, .3);
 }
 
 /*
@@ -195,6 +194,10 @@ hr{
     margin-top: 0%;
     color: grey;
     border-style: solid;   
+}
+
+b{
+    font-weight: bold;
 }
 
 
