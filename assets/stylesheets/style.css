@@ -146,6 +146,17 @@ a:active{
     clear:both;
 }
 
+.herotitleblog{   
+    margin-left: 20%;
+    padding: 2%;
+    color:white;
+    clear:both;   
+}
+
+.herotitle a:hover{
+   text-decoration:none !important;   
+}
+
 .navtext{
     color:white;
     float:left;
@@ -165,16 +176,17 @@ a:active{
 }
 
 .blogtitle{
-    margin-left: 2%;
+    margin-left: 20%;
     margin-bottom: 1%;
     margin-top:2%;
     color:RGB(0, 139, 139);
 }
 
 .blogtext {
-    margin-left: 2%;
-    margin-right:10%;
+    margin-left: 20%;
+    margin-right:20%;
     line-height: 150%;
+    width: 500px;
 }
 
 #blogpage{
@@ -188,7 +200,7 @@ a:active{
   ========================================
 */
 #posteddate{
-    margin-left: 3%;
+    margin-left: 21%;
     padding:2%;
     font-size:12px;
     color:dimgrey;
