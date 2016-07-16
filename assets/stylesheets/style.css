@@ -60,9 +60,10 @@ html{
 }
 
 p {
-    font-size: 14px;
+    font-size:18px;
     color:#333;
 }
+
 
 header{
     /*background: RGB(43, 56, 71);*/
@@ -82,7 +83,7 @@ body{
 */
 
 h1 {
-    font-size:40px;
+    font-size:52px;
 }
 
 h2 {
@@ -90,7 +91,7 @@ h2 {
 }
 
 h3 {
-    font-size:26px;
+    font-size:36px;
 }
 
 h4 {
@@ -190,7 +191,7 @@ a:active{
     margin-left: 20%;
     margin-right:20%;
     line-height: 150%;
-    width: 500px;
+    width: 800px;
 }
 
 #blogpage{
