@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel='stylesheet' href='../assets/stylesheets/style.css'>
         <link href="../assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.ico" rel="icon" type="image/x-icon" />
-        <title>Christian Fougner</title>
+        <title>Christian Fougner</title>        
         
          <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -18,9 +18,13 @@
             ga('send', 'pageview');
 
         </script>
+        
+                <link href="../assets/stylesheets/codesnippet.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="../assets/javascript/prettify.js"></script>
+        <script type='text/javascript' src="../assets/javascript/lang-r.jsl"></script>
     </head>
     
-    <body> 
+    <body onload='prettyPrint()'> 
         <header>
             <nav>
              
@@ -54,10 +58,46 @@
             Hi, and welcome to my second blog post.test Hi, and welcome to my second blog p Hi,    and welcome to my second blog post.testHi, and welcome to my second blog post.testHi, and welcome to my second blog post.testHi, and welcome to my second blog post.testHi, and welcome to my second blog post.testHi, and welcome to my second blog post.testHi, and welcome to my second blog post.testHi, and welcome to my second blog post.testHi, and welcome to my second blog post.testHi, and welcome to my second blog post.testHi, and welcome to my second blog post.test
             </p>
             
+            
+             <pre class="prettyprint lang-r">
+freqs<-count(as.factor(df$TS))
+proportion<-freqs[1:6, 'freq']/length(df$TS)
+
+propdf<-data.frame(sample=rep(df[1,1], times=6), TS=freqs$x, proportion=proportion)
+
+assign(paste('sample', filenum, sep=''), propdf)
+
+
+bound<-rbind(sample1, sample2, sample3, sample4,    sample5, sample6, sample7,
+        sample8, sample9, sample10, sample11, sample12, sample13,
+        sample14, sample15, sample16, sample17, sample18)
+
+
+plotdata<-ggplot(bound,aes(x=factor(sample),y=proportion,fill=factor(TS)), color=factor(TS))
+
+
+chart<-plotdata + stat_summary(fun.y=mean,position="stack",geom="bar") +
+        theme(axis.title.x=element_blank(),
+            axis.line.x=element_blank(),
+            axis.ticks.x=element_blank(),
+            axis.text.x=element_text(angle=90),
+            legend.title=element_blank()) +
+        labs(y='Proportion of substitutions') +
+        scale_y_continuous(limits = c(0,1), expand = c(0, 0))
+            
+#################################################################################
+## Create new column in df with transition type
+#################################################################################
+  for (row in 1:length(df$sample)){
+    df[row, 'TS']<-paste(df[row, 'ref'], df[row, 'alt'], sep='>')
+  }
+
+            </pre>
+            
             <p id='posteddate'>
             Posted: 12.07.2016
             </p>
         </article>    
         
-    
+            </body>
 </html>
