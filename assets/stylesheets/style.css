@@ -179,8 +179,8 @@ a:active{
 
 @media all and (max-width:760px){
     .blogtext {
-    margin-left: 2%;
-    margin-right:2%;
+    margin-left: 5%;
+    margin-right:5%;
     line-height: 150%;
 
 }
