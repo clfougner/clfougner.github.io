@@ -5,6 +5,7 @@ pre.prettyprint {
     font-family: monospace;
     font-size: 16px;
     margin-left: 5%;
+    margin-right:5%;
     overflow:scroll;
     border-left:10px solid transparent;
     border-right:10px solid transparent;
@@ -49,7 +50,7 @@ pre .dec { color: #98fb98 } /* decimal  */
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
-li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 {list-style: decimal}
 /* Alternate shading for lines */
 li.L1,li.L3,li.L5,li.L7,li.L9 { }
 
@@ -66,3 +67,6 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
   pre .atn, code .atn { color: #404 }
   pre .atv, code .atv { color: #060 }
 }
+
+
+        .prettyprint ol.linenums > li { list-style-type: decimal; }
