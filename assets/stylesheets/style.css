@@ -107,9 +107,14 @@ h5 {
   ========================================
 */
 
-img{
+.logoimg{
     float:left;
     padding:10px;
+}
+
+.blogimg{
+    margin: 0 auto;
+    display:block;
 }
 
 /*
@@ -176,6 +181,7 @@ a:active{
     margin-top:10px;
     color:#333;
 }
+
 
 @media all and (max-width:760px){
     .blogtext {

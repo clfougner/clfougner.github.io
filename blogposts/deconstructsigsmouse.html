@@ -29,7 +29,7 @@
             <nav>
              
                 <a href='http://fougner.co'>
-                    <img src="../assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.png", style='width: 50px; height: 50px;' alt='logo'>
+                    <img src="../assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.png", style='width: 50px; height: 50px;' alt='logo' class='logoimg'>
                 </a>
              
                 <h5 class='navtext'>
@@ -55,15 +55,15 @@
         <article>
             <h3 class='blogtitle'>Analyzing mutational signatures in mice using deconstructSigs</h3>
             <p class='blogtext' id='blogpage'>
-                Mutational signatures were pioneered by S Nik-Zainal et al. in 2012 (ref) and the concept has since become instrumental in the analysis of the etiology of cancer. The first publication of mutational signatures was accompanied by the WTSI Mutational Signature Framework by LB Alexandrov (ref:https://www.mathworks.com/matlabcentral/fileexchange/38724-wtsi-mutational-signature-framework). This framework is written in MATLAB, which is a proprietary language/environment. As a result a number of frameworks have been written in non-proprietary languages, allowing free access to mutational signature analyses. 
+                Mutational signatures were pioneered by <a href='http://www.cell.com/cell/abstract/S0092-8674(12)00528-4?_returnURL=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0092867412005284%3Fshowall%3Dtrue' target='_blank'>Nik-Zainal et al. in 2012</a> and the concept has since become instrumental in the analysis of the etiology of cancer. The first publication of mutational signatures was accompanied by the <a href='https://www.mathworks.com/matlabcentral/fileexchange/38724-wtsi-mutational-signature-framework' target='_blank'>WTSI Mutational Signature Framework by LB Alexandrov</a>. This framework is written in MATLAB, which is a proprietary language/environment. As a result a number of frameworks have been written in non-proprietary languages, allowing free access to mutational signature analyses. 
             </p>
             
             <p class='blogtext' id='blogpage'>
-Mutational signature analyses have primarily been done on human tissues, and to the best of my knowledge, the frameworks for performing these analyses don't support non-human analysis out of the box. I ran across this issue in my own research, analyzing exome sequencing data from mouse mammary tumors. I'm writing this blog post to show an extremely simple solution to this issue by making some small modifications to the deconstructSigs packet (ref).
+Mutational signature analyses have primarily been done on human tissues, and to the best of my knowledge, the frameworks for performing these analyses don't support non-human analysis out of the box. I ran across this issue in my own research, analyzing exome sequencing data from mouse mammary tumors. I'm writing this blog post to show an extremely simple solution to this issue by making some small modifications to the <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0893-4' target='_blank'>deconstructSigs</a> <a href='https://github.com/raerose01/deconstructSigs' target='_blank'>package</a>.
             </p>
 
             <p class='blogtext' id='blogpage'>
-R packages are generally installed from the central CRAN repository by using the `install.packages` command. However, these packages come pre-compiled and can't be modified, so you'll have to download the package by cloning the deconstructSigs GitHub repository (ref:https://github.com/raerose01/deconstructSigs). 
+R packages are generally installed from the central CRAN repository by using the `install.packages` command. However, these packages come pre-compiled and can't be modified, so you'll have to download the package by cloning the <a href='https://github.com/raerose01/deconstructSigs' target='_blank'>deconstructSigs GitHub repository</a>.
             </p>
 
             <p class='blogtext' id='blogpage'>
@@ -98,7 +98,7 @@ The principles for mutational signature analysis for human and mouse are of cour
 </pre>
             
             <p class='blogtext' id='blogpage'>
-              OPTIONAL step: I prefer the chart aesthetic found in the original WTSI mutational signature framework(1, 2, 3) to that found in the deconstructSigs framework and have therefore made a few changes to the plotting.R file in order to arrive at the figure shown below:
+              OPTIONAL step: I prefer the chart aesthetic found in the original WTSI mutational signature framework to that <a href='https://raw.githubusercontent.com/raerose01/deconstructSigs/master/inst/extdata/plotSignatures.png'>found in the deconstructSigs framework</a> and have therefore made a few changes to the plotting.R file in order to arrive at the figure shown below:
             </p>
             
             <pre class="prettyprint lang-r">
@@ -196,7 +196,7 @@ dev.off()
             If everything goes according to plan, the resulting chart will look something like this:
             </p>
             
-            <img src='../assets/images/S123_14_6.deconstructSigs.pdf' alt='mutational signature chart from mouse tumor from deconstructSigs'>
+            <img class='blogimg' src='../assets/images/S123_14_6.deconstructSigs.png' alt='mutational signature chart from mouse tumor from deconstructSigs' style='width: 750px; height: 750px;'>
             
             <p id='posteddate'>
             Posted: 12.07.2016
