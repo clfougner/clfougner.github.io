@@ -59,7 +59,7 @@
             </p>
             
             <p class='blogtext' id='blogpage'>
-Mutational signature analyses have primarily been done on human tissues, and to the best of my knowledge, the frameworks for performing these analyses don't support non-human analysis out of the box. I ran across this issue in my own research, analyzing exome sequencing data from mouse mammary tumors. I'm writing this blog post to show an extremely simple solution to this issue by making some small modifications to the <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0893-4' target='_blank'>deconstructSigs</a> <a href='https://github.com/raerose01/deconstructSigs' target='_blank'>package</a>.
+Mutational signature analyses have primarily been done on human tissue, and to the best of my knowledge, the frameworks for performing these analyses don't support non-human analysis out of the box. I ran across this issue in my own research, analyzing exome sequence data from mouse mammary tumors. I'm writing this blog post to show an extremely simple solution to this issue by making some small modifications to the <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0893-4' target='_blank'>deconstructSigs</a> <a href='https://github.com/raerose01/deconstructSigs' target='_blank'>package</a>.
             </p>
 
             <p class='blogtext' id='blogpage'>
@@ -67,7 +67,7 @@ R packages are generally installed from the central CRAN repository by using the
             </p>
 
             <p class='blogtext' id='blogpage'>
-The principles for mutational signature analysis for human and mouse are of course identical. The only difference is which reference genome is used. The deconstructSigs framework has hard coded the reference genome, as opposed to setting it as a parameter. Therefore, the only changes required to the source code are the following lines of the `mut.to.sigs.input.R` file:
+The principles for mutational signature analysis for human and mouse samples are of course identical. The only difference is which reference genome is used. The deconstructSigs framework has hard coded the reference genome, as opposed to setting it as a parameter. Therefore, the only changes required to the source code are the following lines of the `mut.to.sigs.input.R` file:
             </p>
            
             
@@ -98,7 +98,7 @@ The principles for mutational signature analysis for human and mouse are of cour
 </pre>
             
             <p class='blogtext' id='blogpage'>
-              OPTIONAL step: I prefer the chart aesthetic found in the original WTSI mutational signature framework to that <a href='https://raw.githubusercontent.com/raerose01/deconstructSigs/master/inst/extdata/plotSignatures.png'>found in the deconstructSigs framework</a> and have therefore made a few changes to the plotting.R file in order to arrive at the figure shown below:
+              OPTIONAL step: I prefer the chart aesthetic found in the original WTSI mutational signature framework to that <a href='https://raw.githubusercontent.com/raerose01/deconstructSigs/master/inst/extdata/plotSignatures.png'>found in the deconstructSigs framework</a> and have therefore made a few changes to the plotting.R file in order to arrive at the figure shown at the end of this post:
             </p>
             
             <pre class="prettyprint lang-r">
@@ -160,7 +160,7 @@ library(deconstructSigs)
 </pre>
             
             <p class='blogtext' id='blogpage'>
-                From here on out, usage of the deconstructSigs package is best left to the <a href=https://github.com/raerose01/deconstructSigs/blob/master/README.md>deconstructSigs GitHub page</a>. Nonetheless, for a quick example of a script for running it looks:
+                From here on out, usage of the deconstructSigs package is best explained by the <a href=https://github.com/raerose01/deconstructSigs/blob/master/README.md>deconstructSigs GitHub page</a>. Nonetheless, for a quick example of a script for running it:
             </p>
             
             <pre class="prettyprint lang-r">
