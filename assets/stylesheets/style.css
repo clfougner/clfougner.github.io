@@ -259,8 +259,9 @@ i{
 }
 
 footer{
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    bottom: 10px;
+    top: 50px;
     left: 0;
     right: 0;
     height:100px;
