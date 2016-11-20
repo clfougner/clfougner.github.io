@@ -1,94 +1,39 @@
 <!DOCTYPE html>
 <html lang='en'>
+    <script src="http://www.w3schools.com/lib/w3data.js">       </script>
     
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel='stylesheet' href='../assets/stylesheets/style.css'>
-        <link href="../assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.ico" rel="icon" type="image/x-icon" />
-        <title>Christian Fougner</title>        
-        
-         <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                                    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-80353125-2', 'auto');
-            ga('send', 'pageview');
-
+    <div w3-include-html="/models/head.html"></div> 
+        <script>
+            w3IncludeHTML();
         </script>
-        
-                <link href="../assets/stylesheets/codesnippet.css" type="text/css" rel="stylesheet" />
-        <script type="text/javascript" src="../assets/javascript/prettify.js"></script>
-        <script type='text/javascript' src="../assets/javascript/lang-r.jsl"></script>
-    </head>
     
     <body onload='prettyPrint()'> 
-        <header>
-            <nav>
-             
-                <a href='/'>
-                    <img src="../assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.png", style='width: 50px; height: 50px;' alt='logo' class='logoimg'>
-                </a>
-             
-                <h5 class='navtext'>
-                    <a href="/" style="text-decoration:none;">Home</a>
-                </h5>
-                 
-                <h5 class='navtext'>
-                    <a href="/blog/" style="text-decoration:none;">Blog</a>
-                </h5>
-                
-                <h5 class='navtext'>
-                    <a href="https://github.com/clfougner/MouseExomeSequencing" style="text-decoration:none;">GitHub</a>
-                </h5>
-
-            </nav>
+        <div w3-include-html="/models/header.html"></div> 
+        <script>
+            w3IncludeHTML();
+        </script>
+                    
+        <h1 class='herotitle'>
+            <a href='/blog/'>
+                Christian Fougner's <b>blog</b>
+            </a>    
+        </h1>
         
-              <h1 class='herotitle'>
-                <a href='/blog/'>
-                    Christian Fougner's <b>blog</b>
-                </a>    
-            </h1>
-        </header>
-    
         <article>
             <h3 class='blogtitle'>Hello world!</h3>
             <p class='blogtext' id='blogpage'>
-                        Hi, and welcome to my blog! If you've arrived here... you probably came here by accident. In brief, I'm a medical student doing an MD/PhDish program at the University of Oslo at the Department of Cancer Genetics. I'm currently working on sequence data from mouse cancer models, with a focus on tumor progression. Recently, I've been spending far too much time figuring out what should be fairly standard sequence analyses, so I'm starting this blog in an attempt to publicly document some of my work and hopefully be of help to to the next person working through the same issues as myself. Maybe I'll even have an opinion about something at some point too... For now, thanks for visiting!
+                Hi, and welcome to my blog! If you've arrived here... you probably came here by accident. In brief, I'm a medical student doing an MD/PhDish program at the University of Oslo at the Department of Cancer Genetics. I'm currently working on sequence data from mouse cancer models, with a focus on tumor progression. Recently, I've been spending far too much time figuring out what should be fairly standard sequence analyses, so I'm starting this blog in an attempt to publicly document some of my work and hopefully be of help to to the next person working through the same issues as myself. Maybe I'll even have an opinion about something at some point too... For now, thanks for visiting!
             </p>
             
             <p id='posteddate'>
             Posted: 12.07.2016
             </p>
         </article>    
-
-            
-            </body>
-            <footer>
-
-            
-            <p class="blogtext">
-            <a href="mailto:clfougner@gmail.com">
-                <img src="/assets/images/MailIcon.svg", style="width=30px; height: 30px", alt="Email" class="footerimg">
-            </a>
-            
-            <a href="https://linkedin.com/in/clfougner">
-                <img src="/assets/images/LinkedInIcon.png", style="width=30px; height: 30px", alt="LinkedIn" class="footerimg">
-            </a>
-
-            <a href="https://twitter.com/CLFougner">
-                <img src="/assets/images/twittericon.png", style="width=30px; height: 30px", alt="Twitter" class="footerimg">
-            </a>
-            </p>
-            
-            <p class="blogtext">
-      Copyright &copy; Christian Fougner <script type="text/javascript">
-  document.write(new Date().getFullYear());
-</script>
-            </p>
-  
-    </footer>
-
+        
+    <div w3-include-html="/models/footer.html"></div> 
+        <script>
+            w3IncludeHTML();
+        </script>
+    
+    </body>
 </html>
