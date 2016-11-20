@@ -185,6 +185,7 @@ a:active{
 }
 }
 
+
 #blogpage{
     margin-top: 2%;
 }
@@ -212,14 +213,19 @@ a:active{
 }
 
 .footerimg{
+    float:left;
     padding: 10px;
+    margin-bottom: -20px;
+
 
 }
 
 .footerimg a:hover{
-    text-decoration:none !important; 
-    text-decoration-color: white;
+    Text-decoration: none;
+    outline: none;
+    border: 0px none transparent;
 }
+
 
 
 /*
