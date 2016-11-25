@@ -160,12 +160,25 @@ a:active{
     padding: 15px;     
 }
 
+@media all and (max-width:760px){
+.blogtitle{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1%;
+    margin-top:10px;
+    color:#333;
+}
+}
+
+@media all and (min-width:761px){
 .blogtitle{
     margin-left: 21%;
     margin-bottom: 1%;
     margin-top:10px;
     color:#333;
 }
+}
+
 
 
 @media all and (max-width:760px){
@@ -207,10 +220,25 @@ a:active{
     margin-top:-10px;
     padding: 10px
 }
+
+@media all and (max-width:760px){
+.blogimg{
+    max-width:100%;
+    object-fit:scale-down;
+    height: auto !important;
+
+}
+}
+
+@media all and (min-width:761px){
 .blogimg{
     margin: 0 auto;
     display:block;
+    
 }
+}
+
+
 
 .footerimg{
     float:left;
