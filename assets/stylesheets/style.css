@@ -198,6 +198,11 @@ a:active{
 }
 }
 
+.blogtext a {
+    text-decoration: underline;
+}
+
+
 
 #blogpage{
     margin-top: 2%;
