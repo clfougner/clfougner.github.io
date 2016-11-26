@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang='en'>
    ´
-    <head>
+   <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel='stylesheet' href='/assets/stylesheets/style.css'>
+        <link rel='stylesheet' href='../assets/stylesheets/style.css'>
         <link href="../assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.ico" rel="icon" type="image/x-icon" />
-        <title>Christian Fougner</title>
+        <title>Christian Fougner</title>        
         
-             <script>
+         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -16,11 +16,12 @@
 
             ga('create', 'UA-80353125-2', 'auto');
             ga('send', 'pageview');
+
         </script>
         
-        <link href="/assets/stylesheets/codesnippet.css" type="text/css" rel="stylesheet" />
-        <script type="text/javascript" src="/assets/javascript/prettify.js"></script>
-        <script type='text/javascript' src="/assets/javascript/lang-r.jsl"></script>
+        <link href="../assets/stylesheets/codesnippet.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="../assets/javascript/prettify.js"></script>
+        <script type='text/javascript' src="../assets/javascript/lang-r.jsl"></script>
     </head>
     
     <header>
@@ -62,11 +63,11 @@
         </h3>
         
         <p class='blogtext' id='blogpage'>
-            In my <a href='/blog/deconstructsigsmouse.html' target="_blank">previous post</a>, I gave a brief introduction to mutational signature and spectrum analysis using the deconstructSigs framework, including how to modify the source code to allow for the analysis of murine samples. deconstructSigs allows for the visualisation of mutational spectra as barcharts, giving a granular view of the trinucleotide context for variants in an individual sample. Unfortunately, this form of visualisation works poorly for the purpose of comparing the mutational spectra of multiple samples in a cohort. One solution to this is to display mutational spectra as a heatmap, as presented in <a href='http://www.nature.com/nature/journal/v517/n7535/abs/nature13898.html' target="_blank">PMK Westcott et al. 2015</a>. This post will show how this can be done in R.
+            In my <a href='/blog/deconstructsigs.html' target="_blank">previous post</a>, I gave a brief introduction to mutational signature and spectrum analysis using the deconstructSigs framework, including how to modify the source code to allow for the analysis of murine samples. deconstructSigs allows for the visualisation of mutational spectra as barcharts, giving a granular view of the trinucleotide context for variants in an individual sample. Unfortunately, this form of visualisation works poorly for the purpose of comparing the mutational spectra of multiple samples in a cohort. One solution to this is to display mutational spectra as a heatmap, as presented in <a href='http://www.nature.com/nature/journal/v517/n7535/abs/nature13898.html' target="_blank">PMK Westcott et al. 2015</a>. This post will show how this can be done in R.
         </p>
         
         <p class="blogtext" id='blogpage'>
-            The work presented here builds on my <a href='/blog/deconstructsigsmouse.html' target="_blank">previous post</a>, and uses <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0893-4' target='_blank'>deconstructSigs</a> to find the trinucleotide context for variants in a sample. The R-packages 'gplots' and 'ComplexHeatmap' are also required. All lines of code that will need to be modified to fit your own data (filenames, number of samples, etc.) are tagged with "#MODIFY'.
+            The work presented here builds on my <a href='/blog/deconstructsigs.html' target="_blank">previous post</a>, and uses <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0893-4' target='_blank'>deconstructSigs</a> to find the trinucleotide context for variants in a sample. The R-packages 'gplots' and 'ComplexHeatmap' are also required. All lines of code that will need to be modified to fit your own data (filenames, number of samples, etc.) are tagged with "#MODIFY'.
         </p>
         
         <p class="blogtext" id='blogpage'>
