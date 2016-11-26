@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang='en'>
+   ´
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href='/assets/stylesheets/style.css'>
+        <link href="/assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.ico" rel="icon" type="image/x-icon" />
+        <title>Christian Fougner</title>
+        
+             <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                                    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-80353125-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+        <link href="/assets/stylesheets/codesnippet.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="/assets/javascript/prettify.js"></script>
+        <script type='text/javascript' src="/assets/javascript/lang-r.jsl"></script>
+    </head>
+    
+    <header>
+        <nav>
+            <a href='/'>
+                <img src="/assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.png", style='width: 50px; height: 50px;' alt='logo' class='logoimg'>
+            </a>
+             
+            <h5 class='navtext'>
+                <a href="/" style="text-decoration:none;">
+                    Home
+                </a>
+            </h5>
+                 
+            <h5 class='navtext'>
+                <a href="/blog/" style="text-decoration:none;">
+                    Blog
+                </a>
+            </h5>
+                
+            <h5 class='navtext'>
+                <a href="https://github.com/clfougner/MouseExomeSequencing" style="text-decoration:none;">
+                    GitHub
+                </a>
+            </h5>
+        </nav>
+    </header>
+     
+    <body onload='prettyPrint()'> 
+    <h1 class='herotitle'>
+        <a href='/blog/'>
+            Christian Fougner's <b>blog</b>
+        </a>    
+    </h1>
+        
+    <article>
+        <h3 class='blogtitle'>
+            Visualizing mutational spectra using heatmaps
+        </h3>
+        
+        <p class='blogtext' id='blogpage'>
+            In my <a href='/blog/deconstructsigsmouse.html' target="_blank">previous post</a>, I gave a brief introduction to mutational signature and spectrum analysis using the deconstructSigs framework, including how to modify the source code to allow for the analysis of murine samples. deconstructSigs allows for the visualisation of mutational spectra as barcharts, giving a granular view of the trinucleotide context for variants in an individual sample. Unfortunately, this form of visualisation works poorly for the purpose of comparing the mutational spectra of multiple samples in a cohort. One solution to this is to display mutational spectra as a heatmap, as presented in <a href='http://www.nature.com/nature/journal/v517/n7535/abs/nature13898.html' target="_blank">PMK Westcott et al. 2015</a>. This post will show how this can be done in R.
+        </p>
+        
+        <p class="blogtext" id='blogpage'>
+            The work presented here builds on my <a href='/blog/deconstructsigsmouse.html' target="_blank">previous post</a>, and uses <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0893-4' target='_blank'>deconstructSigs</a> to find the trinucleotide context for variants in a sample. The R-packages 'gplots' and 'ComplexHeatmap' are also required. All lines of code that will need to be modified to fit your own data (filenames, number of samples, etc.) are tagged with "#MODIFY'.
+        </p>
+        
+        <p class="blogtext" id='blogpage'>
+            First, load the required packages:
+        </p>
+        
+        <pre class="prettyprint lang-r">
+library(deconstructSigs)
+library(gplots)
+library(ComplexHeatmap)
+        </pre>
+        
+        <p class="blogtext" id='blogpage'>
+            Find the trinucleotide contexts for the variants in your sample:
+        </p>
+        
+        <pre class="prettyprint lang-r">
+# Read variant lists (skip appropriate number of lines if read in as a .vcf file))
+S123_14_6_table<-read.table("S123_14_6.txt", sep='\t') #MODIFY filename
+S131_14_9_table<-read.table("S131_14_9.txt", sep='\t') #MODIFY filename
+S132_14_5_table<-read.table("S132_14_5.txt", sep='\t') #MODIFY filename
+
+
+# Create data frame of variant lists in the long format with columns for sample name 
+# chromosome number, variant position/coordinate, reference and alternate bases.
+df1<-data.frame(sample=c(rep('S123_14_6', times=(length(S123_14_6_table$V3)))), chr=S123_14_6_table$V1, pos=S123_14_6_table$V2, ref=S123_14_6_table$V3, alt=S123_14_6_table$V4) #MODIFY filename and row/column name/numbers
+df2<-data.frame(sample=c(rep('S131_14_9', times=(length(S131_14_9_table$V3)))), chr=S131_14_9_table$V1, pos=S131_14_9_table$V2, ref=S131_14_9_table$V3, alt=S131_14_9_table$V4) #MODIFY filename and row/column name/numbers
+df3<-data.frame(sample=c(rep('S132_14_5', times=(length(S132_14_5_table$V3)))), chr=S132_14_5_table$V1, pos=S132_14_5_table$V2, ref=S132_14_5_table$V3, alt=S132_14_5_table$V4) #MODIFY filename and row/column name/numbers
+
+# Bind data frames
+alldfs<-rbind(df1, df2, df3) #MODIFY number of dataframes
+
+## Create input to whichSignatures
+sigs.input <- mut.to.sigs.input(mut.ref = alldfs, 
+                                sample.id = "sample", 
+                                chr = "chr", 
+                                pos = "pos", 
+                                ref = "ref", 
+                                alt = "alt")
+        </pre>
+        
+        <p class="blogtext" id='blogpage'>
+            At this point, the output (sigs.input) should look something like this:
+        </p>
+        
+        <pre class="prettyprint lang-r">
+            A[C>A]A	A[C>A]C	A[C>A]G	A[C>A]T	C[C>A]A	C[C>A]C	C[C>A]G	C[C>A]T	G[C>A]A	G[C>A]C	G[C>A]G	G[C>A]T	T[C>A]A	T[C>A]C	T[C>A]G	T[C>A]T	A[C>G]A	A[C>G]C	A[C>G]G	A[C>G]T	C[C>G]A	C[C>G]C	C[C>G]G	C[C>G]T	G[C>G]A	G[C>G]C	G[C>G]G	G[C>G]T	T[C>G]A	T[C>G]C	T[C>G]G	T[C>G]T	A[C>T]A	A[C>T]C	A[C>T]G	A[C>T]T	C[C>T]A	C[C>T]C	C[C>T]G	C[C>T]T	G[C>T]A	G[C>T]C	G[C>T]G	G[C>T]T	T[C>T]A	T[C>T]C	T[C>T]G	T[C>T]T	A[T>A]A	A[T>A]C	A[T>A]G	A[T>A]T	C[T>A]A	C[T>A]C	C[T>A]G	C[T>A]T	G[T>A]A	G[T>A]C	G[T>A]G	G[T>A]T	T[T>A]A	T[T>A]C	T[T>A]G	T[T>A]T	A[T>C]A	A[T>C]C	A[T>C]G	A[T>C]T	C[T>C]A	C[T>C]C	C[T>C]G	C[T>C]T	G[T>C]A	G[T>C]C	G[T>C]G	G[T>C]T	T[T>C]A	T[T>C]C	T[T>C]G	T[T>C]T	A[T>G]A	A[T>G]C	A[T>G]G	A[T>G]T	C[T>G]A	C[T>G]C	C[T>G]G	C[T>G]T	G[T>G]A	G[T>G]C	G[T>G]G	G[T>G]T	T[T>G]A	T[T>G]C	T[T>G]G	T[T>G]T
+S123_14_6	9	1	4	2	22	7	2	9	7	0	2	5	4	3	4	7	5	0	1	0	0	1	2	1	4	1	0	1	7	1	2	1	2	0	0	0	6	3	3	3	0	0	0	0	3	2	3	1	7	5	41	11	25	24	134	44	22	16	76	14	18	12	45	14	5	1	9	3	2	2	3	3	4	3	9	1	1	2	2	1	2	0	4	0	1	2	17	2	0	0	3	1	3	0	5	0
+S131_14_9	40	9	14	26	71	28	34	51	19	5	6	4	52	36	12	31	8	2	3	0	5	3	2	7	8	8	2	5	21	14	8	12	12	3	2	4	11	7	6	14	1	3	2	1	11	7	4	14	34	22	137	22	77	119	491	157	84	43	276	64	41	40	173	48	8	3	30	9	7	10	24	6	11	18	27	13	4	2	10	2	4	2	19	0	7	8	42	9	3	1	27	2	7	2	11	1
+S132_14_5	43	17	14	10	53	15	19	38	18	6	4	10	30	19	13	25	10	0	3	1	6	5	7	7	4	1	1	8	10	6	5	4	11	5	2	3	15	3	2	8	4	0	5	0	14	5	5	10	23	21	116	16	69	100	394	111	79	41	218	65	36	33	106	26	10	0	21	9	7	5	15	7	11	10	23	17	1	2	11	2	2	2	8	3	6	4	44	5	2	2	29	1	2	3	14	4
+        </pre>
+        
+        <p class="blogtext" id='blogpage'>
+            Note that this tutorial can now be followed without access to the source files by importing the output shown above to a data frame.
+        </p>
+        
+        <p class="blogtext" id='blogpage'>
+           Next, log scale and center the data, and reformat it so that it can be used to create a heatmap:
+        </p>
+       
+                <pre class="prettyprint lang-r">
+bound<-data.frame(matrix(0, ncol=24, nrow=4))
+rownames(bound)<-c('A','C','G','T')
+colnames(bound)<-rep(c('A','C','G','T'), times=6)
+
+for (a in 1:3) #MODIFY second value to number of samples
+{
+  
+  df<-data.frame(matrix(0, ncol=24, nrow=4))
+  rownames(df)<-c('A','C','G','T')
+  colnames(df)<-rep(c('A','C','G','T'), times=6)
+  for (n in 1:24){
+    start<-(4*n)-3
+    end<-(4*n)
+    df[,n]<-as.numeric(sigs.input[a, start:end])
+  }
+  
+  df<-df+1
+  df<-log10(df)
+  df<-scale(df, center=TRUE, scale=TRUE)
+  
+  bound<-rbind(bound, df)
+}
+
+bound<-bound[-(1:4),]
+        </pre>
+        
+        <p class="blogtext" id='blogpage'>
+            As mentioned, the data should be log scaled and centered. We do this because the frequency differences in mutation type and trinucleotide context are large, and a large degree of granularity would be lost using a linear scale. We center the data around zero, because the purpose of the heatmap is to contrast the relative proportion of mutations types in given trinucleotide contexts between samples. If we were to to use absolute values instead of center scaling, the total number of variants in the sample would become the most prominent feature of the data.</p>
+    
+        <p class="blogtext" id='blogpage'>
+            An important point to note is that most heatmapping software has center and log scaling included, so why are we doing it manually? This is because the heatmapping software would do the scaling across the entire dataset, whereas we now want to do the scaling on a per sample basis. Also, note that we add "1" to every point in the data frame - this is of course because log(0) is undefined, og negative infinity. Including such data in a heatmap would be problematic, so this transformation bypasses this issue.
+        </p>
+        
+        <p class="blogtext" id='blogpage'>
+            The next code block defines a few features needed to annotate the heatmap:
+        </p>
+        
+        <pre class="prettyprint lang-r">
+cols<-c(rep("deepskyblue", times=4), rep("black", times=4),
+        rep("red", times=4), rep("magenta4", times=4),
+        rep("forestgreen", times=4), rep("salmon", times=4))
+
+my_palette <- colorRampPalette(c("yellow", "orange", "red"))
+sampleNum<-length(levels(alldfs$sample))
+
+sampleNames<-c('S123_14_6', 'S131_14_9', 'S132_14_5') #MODIFY sample names
+sndf<-data.frame(sampleNames)
+        </pre>
+        
+        <p class="blogtext" id='blogpage'>
+            The following code block creates the actual heatmap. The first function creates the heatmap, and the following functions add annotations.
+        </p>
+        
+        <pre class="prettyprint lang-r">
+heatmap.2(as.matrix(bound),
+          trace='none',
+          dendrogram='none',
+          Rowv=FALSE,
+          Colv=FALSE,
+          scale='none',
+          colsep=c(4, 8, 12, 16, 20),
+          rowsep=seq(4, (sampleNum*4), by=4),
+          sepcolor = '#333333',
+          key=TRUE,
+          denscol=rgb(0,0,0,0),
+          key.title='Heatmap scale (log10)',
+          ylab = '3\' base',
+          xlab='5\' base',
+          key.xlab = NA,
+          key.ylab = NA,
+          keysize= 1.5,
+          srtCol = 0,
+          ColSideColors = cols,
+          adjCol = c(0.5,1),
+          key.ytickfun=function() {breaks <- list(3)},
+          cexRow = 1,
+          cexCol = 1,
+          col=my_palette,
+          labRow=rep(c('A','C','G', 'T'), times = sampleNum),
+          na.color='yellow',
+          lwid=c(1.5,4), #MODIFY size
+          lhei=c(1.1,4) #MODIFY size
+          
+)
+
+pos1 <- structure(list(x = c(0.262, 0.891), #MODIFY coordinates
+                       y = 0.98), #MODIFY coordinates
+                  .Names = c("x", "y"))
+
+text(x=seq(pos1$x[1], pos1$x[2], len=6), y=rep(pos1$y[1],6)  ,
+     srt=0, xpd=TRUE, adj = 0,
+     labels=c('C>A', 'C>G', 'C>T', 'T>A', 'T>C', 'T>G') )
+
+
+pos2 <- structure(list(x = 0.0608, #MODIFY coordinates
+                       y = c(0.7433, -0.225)), #MODIFY coordinates
+                  .Names = c("x", "y"))
+text(y=seq(pos2$y[1], pos2$y[2], len=4), x=rep(pos2$x[1],4)  ,
+     srt=0, xpd=TRUE, adj = 0,
+     labels=sampleNames)
+        </pre>
+        
+        <p class="blogtext" id='blogpage'>
+            As you'll notice, the coordinates for the sample name and substitution type are hard coded. Heatmap.2 doesn't have the functionality to add more than one x-axis annotation and one y-axis annotation, so you'll have to experiment with the coordinates to make the annotations fit as well as possible. Let me know if you find a better solution for this!
+        </p>
+        
+        <p class="blogtext" id='blogpage'>
+            The figure created will look something like this:
+        </p>
+        
+        <img class='blogimg' src='/assets/images/mutspecheatmap.png' alt='mutation spectrum heatmap'>
+        
+        <p id='posteddate'>
+            26.11.2016
+        </p>
+    </article>
+        
+    <footer>
+        <p class="blogtext">
+            <a href="mailto:clfougner@gmail.com">
+                <img src="/assets/images/MailIcon.svg", style="width=30px; height: 30px", alt="Email" class="footerimg">
+            </a>
+            
+            <a href="https://linkedin.com/in/clfougner">
+                <img src="/assets/images/LinkedInIcon.png", style="width=30px; height: 30px", alt="LinkedIn" class="footerimg">
+            </a>
+
+            <a href="https://twitter.com/CLFougner">
+                <img src="/assets/images/twittericon.png", style="width=30px; height: 30px", alt="Twitter" class="footerimg">
+            </a>
+        </p>
+        
+
+        
+        <p class="blogtext" style="clear: both;">
+            
+            <br>
+            
+            Copyright &copy; Christian Fougner <script type="text/javascript">document.write(new Date().getFullYear());</script>
+        </p>
+  
+    </footer>
+    
+    </body>
+</html>

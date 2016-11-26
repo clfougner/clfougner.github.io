@@ -239,6 +239,7 @@ a:active{
 .blogimg{
     margin: 0 auto;
     display:block;
+    width:750px;
     
 }
 }
