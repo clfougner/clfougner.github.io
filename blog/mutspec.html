@@ -67,7 +67,7 @@
         </p>
         
         <p class="blogtext" id='blogpage'>
-            The work presented here builds on my <a href='/blog/deconstructsigs.html' target="_blank">previous post</a>, and uses <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0893-4' target='_blank'>deconstructSigs</a> to find the trinucleotide context for variants in a sample. The R-packages 'gplots' and 'ComplexHeatmap' are also required. All lines of code that will need to be modified to fit your own data (filenames, number of samples, etc.) are tagged with "#MODIFY'.
+            The work presented here builds on my <a href='/blog/deconstructsigs.html' target="_blank">previous post</a>, and uses <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0893-4' target='_blank'>deconstructSigs</a> to find the trinucleotide context for variants in a sample. The R-packages <span class="inlinecode">gplots</span> and <span class="inlinecode">ComplexHeatmap</span> are also required. All lines of code that will need to be modified to fit your own data (filenames, number of samples, etc.) are tagged with <span class="inlinecode">#MODIFY</span>.
         </p>
         
         <p class="blogtext" id='blogpage'>
@@ -110,7 +110,7 @@ sigs.input <- mut.to.sigs.input(mut.ref = alldfs,
         </pre>
         
         <p class="blogtext" id='blogpage'>
-            At this point, the output (sigs.input) should look something like this:
+            At this point, the output - <span class ="inlinecode">sigs.input</span> - should look something like this:
         </p>
         
         <pre class="prettyprint lang-r">
@@ -159,7 +159,7 @@ bound<-bound[-(1:4),]
             As mentioned, the data should be log scaled and centered. We do this because the frequency differences in mutation type and trinucleotide context are large, and a large degree of granularity would be lost using a linear scale. We center the data around zero, because the purpose of the heatmap is to contrast the relative proportion of mutations types in given trinucleotide contexts between samples. If we were to to use absolute values instead of center scaling, the total number of variants in the sample would become the most prominent feature of the data.</p>
     
         <p class="blogtext" id='blogpage'>
-            An important point to note is that most heatmapping software has center and log scaling included, so why are we doing it manually? This is because the heatmapping software would do the scaling across the entire dataset, whereas we now want to do the scaling on a per sample basis. Also, note that we add "1" to every point in the data frame - this is of course because log(0) is undefined, og negative infinity. Including such data in a heatmap would be problematic, so this transformation bypasses this issue.
+            An important point to note is that most heatmapping software has center and log scaling included, so why are we doing it manually? This is because the heatmapping software would do the scaling across the entire dataset, whereas we now want to do the scaling on a per sample basis. Also, note that we add <span class="inlinecode">1</span> to every point in the data frame - this is of course because <span class="inlinecode">log(0)</span> is undefined, og negative infinity. Including such data in a heatmap would be problematic, so this transformation bypasses this issue.
         </p>
         
         <p class="blogtext" id='blogpage'>
