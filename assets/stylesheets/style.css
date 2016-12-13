@@ -30,7 +30,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
+
 }
+
+
 ol, ul {
   list-style: none;
 }
@@ -46,7 +49,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/* End reset everything */
+
+::selection {
+    background-color: #d8217d;
+    color: #fff;
+}
+::-moz-selection {
+    background-color: #d8217d;
+    color: #fff;
+}
 
 /*
   ========================================
