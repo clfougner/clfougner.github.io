@@ -328,3 +328,20 @@ footer{
 
 }
 
+
+div[contenteditable=true] {
+    margin-left: 5%;
+    margin-right:5%;
+    line-height: 150%;
+    height: 100vh;
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+}
+
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}
+
