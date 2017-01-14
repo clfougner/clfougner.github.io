@@ -344,6 +344,7 @@ textarea{
     padding-right: 4rem;
     padding-top: 1rem;
     width:80%;
+    max-width: 760px;
     margin-right: 100px;
     
 }
