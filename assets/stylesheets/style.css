@@ -329,19 +329,40 @@ footer{
 }
 
 
-div[contenteditable=true] {
-    margin-left: 5%;
-    margin-right:5%;
-    line-height: 150%;
-    height: 100vh;
+
+textarea{
+    background-color:#fdfdfd;
+    color:#333;
+    border:0;
+    font-family: monospace;
+    font-size:2rem;
+    height:100vh;
+    line-height:1.4;
+    margin:0 auto;
+    outline:0;
+    padding-left:4rem;
+    padding-right: 4rem;
+    padding-top: 1rem;
+    width:80%;
+    margin-right: 100px;
+    
 }
 
-[contenteditable=true]:empty:before{
-  content: attr(placeholder);
-  display: block; /* For Firefox */
+button{
+    background-color:#fbfbfb;
+    border:1px #ccc solid;
+    color:#999;
+    cursor:pointer;
+    float:right;
+    margin-top: 30px;
+    margin-right: 50px;
+    padding:5px 10px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-size:12px;
+    
 }
 
-[contenteditable]:focus {
-    outline: 0px solid transparent;
+button:hover{
+    color:#333;
+    border:1px #333 solid;
 }
-
