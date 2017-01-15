@@ -350,9 +350,7 @@ textarea{
     padding-right: 1rem;
     padding-top: 1rem;
     width:80%;
-    max-width: 760px;
-    margin-right: 100px;
-    
+    max-width: 760px; 
 }
 
 button{
