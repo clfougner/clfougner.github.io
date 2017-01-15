@@ -4,11 +4,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel='stylesheet' href='../assets/stylesheets/style.css'>
-        <link href="../assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.ico" rel="icon" type="image/x-icon" />
-        <title>Hello World!</title>        
+        <link rel='stylesheet' href='/assets/stylesheets/style.css'>
+        <link href="/assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.ico" rel="icon" type="image/x-icon" />
+        <title>Christian Fougner</title>
         
-         <script>
+             <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -18,38 +18,55 @@
             ga('send', 'pageview');
 
         </script>
+
+        <script type="text/javascript" src="/assets/javascript/scripts.js"></script>
         
-                <link href="../assets/stylesheets/codesnippet.css" type="text/css" rel="stylesheet" />
-        <script type="text/javascript" src="../assets/javascript/prettify.js"></script>
-        <script type='text/javascript' src="../assets/javascript/lang-r.jsl"></script>
+        <link href="/assets/stylesheets/codesnippet.css" type="text/css" rel="stylesheet" />
     </head>
     
-    <body onload='prettyPrint()'> 
+    <body> 
+
         <header>
-            <nav>
-             
-                <a href='/'>
-                    <img src="../assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.png", style='width: 50px; height: 50px;' alt='logo' class='logoimg'>
-                </a>
-             
-                <h5 class='navtext'>
-                    <a href="/" style="text-decoration:none;">Home</a>
-                </h5>
-                 
-                <h5 class='navtext'>
-                    <a href="/blog/" style="text-decoration:none;">Blog</a>
-                </h5>
+            <nav> 
                 
-                <h5 class='navtext'>
-                    <a href="https://github.com/clfougner/MouseExomeSequencing" style="text-decoration:none;">GitHub</a>
-                </h5>
+      <a href="/">
+      <img src="/assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.png", style='width: 50px; height: 50px;' alt='logo' class='logoimg'>
+      </a>
+        <ul class="topnav" id="myTopnav">
+
+                    
+  <li>
+      <a href="/">
+          Home
+      </a>
+  </li>
+                    
+  <li>
+      <a href="/blog/">
+          Blog
+      </a>
+  </li>
+                    
+  <li>
+      <a href="https://github.com/clfougner/MouseExomeSequencing">
+          GitHub
+      </a>
+  </li>
+                    
+  <li>
+      <a href=/write>
+          Notepad
+      </a>
+  </li>             
+                    
+  <li class="icon">
+    <a href="javascript:void(0);" onclick="myBurger()">&#9776;</a>
+  </li>
+                </ul>
                 
-                <h5 class='navtext'>
-                    <a href="/write" style="text-decoration:none;">Notepad</a>
-                </h5>
+
 
             </nav>
-        
               <h1 class='herotitle'>
                 <a href='/blog/'>
                     Christian Fougner's <b>blog</b>
