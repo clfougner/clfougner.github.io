@@ -373,6 +373,10 @@ button:hover{
     border:1px #333 solid;
 }
 
+#emailbutton{
+   border-radius: 3px;
+}
+
 
 ul.topnav {
     list-style-type: none;
