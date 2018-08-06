@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang='en'>
-    
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel='stylesheet' href='/assets/stylesheets/style.css'>
         <link href="/assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.ico" rel="icon" type="image/x-icon" />
         <title>Analyzing mutational signatures in mice using deconstructSigs</title>
-        
+
              <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,71 +20,71 @@
         </script>
 
         <script type="text/javascript" src="/assets/javascript/scripts.js"></script>
-        
+
         <link href="/assets/stylesheets/codesnippet.css" type="text/css" rel="stylesheet" />
         <script type="text/javascript" src="/assets/javascript/prettify.js"></script>
         <script type='text/javascript' src="/assets/javascript/lang-r.jsl"></script>
     </head>
-    
-    <body onload='prettyPrint()'> 
+
+    <body onload='prettyPrint()'>
 
         <header>
-            <nav> 
-                
+            <nav>
+
       <a href="/">
       <img src="/assets/images/nodalEdge-Logo-18-PNG-RGB-BIG_mono-dark.png", style='width: 50px; height: 50px;' alt='logo' class='logoimg'>
       </a>
         <ul class="topnav" id="myTopnav">
 
-                    
+
   <li>
       <a href="/">
           Home
       </a>
   </li>
-                    
+
   <li>
       <a href="/blog/">
           Blog
       </a>
   </li>
-                    
+
   <li>
       <a href="https://github.com/clfougner/MouseExomeSequencing">
           GitHub
       </a>
   </li>
-                    
+
   <li>
       <a href=/write>
           Notepad
       </a>
-  </li>             
-                    
+  </li>
+
   <li class="icon">
      <a href="javascript:void(0);" onclick="myBurger()"> Menu <img src="/assets/images/Entypo/menu.svg" style='width: 22px; height: 22px; vertical-align:middle;' alt='Menu'> </a>
   </li>
                 </ul>
-                
+
 
 
             </nav>
-            
+
         </header>
-        
+
               <h1 class='herotitle'>
                 <a href='/blog/'>
                     Christian Fougner's <b>blog</b>
-                </a>    
+                </a>
             </h1>
         </header>
-    
+
         <article>
             <h3 class='blogtitle'>Analyzing mutational signatures in mice using deconstructSigs</h3>
             <p class='blogtext' id='blogpage'>
-                Mutational signatures were pioneered by <a href='http://www.cell.com/cell/abstract/S0092-8674(12)00528-4?_returnURL=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0092867412005284%3Fshowall%3Dtrue' target='_blank'>Nik-Zainal et al. in 2012</a> and the concept has since become instrumental in the analysis of the etiology of cancer. The first publication of mutational signatures was accompanied by the <a href='https://www.mathworks.com/matlabcentral/fileexchange/38724-wtsi-mutational-signature-framework' target='_blank'>WTSI Mutational Signature Framework by LB Alexandrov</a>. This framework is written in MATLAB, which is a proprietary language/environment. As a result a number of frameworks have been written in non-proprietary languages, allowing free access to mutational signature analyses. 
+                Mutational signatures were pioneered by <a href='http://www.cell.com/cell/abstract/S0092-8674(12)00528-4?_returnURL=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0092867412005284%3Fshowall%3Dtrue' target='_blank'>Nik-Zainal et al. in 2012</a> and the concept has since become instrumental in the analysis of the etiology of cancer. The first publication of mutational signatures was accompanied by the <a href='https://www.mathworks.com/matlabcentral/fileexchange/38724-wtsi-mutational-signature-framework' target='_blank'>WTSI Mutational Signature Framework by LB Alexandrov</a>. This framework is written in MATLAB, which is a proprietary language/environment. As a result a number of frameworks have been written in non-proprietary languages, allowing free access to mutational signature analyses.
             </p>
-            
+
             <p class='blogtext' id='blogpage'>
 Mutational signature analyses have primarily been done on human tissue, and to the best of my knowledge, the frameworks for performing these analyses don't support non-human analysis out of the box. I ran across this issue in my own research, analyzing exome sequence data from mouse mammary tumors. I'm writing this blog post to show an extremely simple solution to this issue by making some small modifications to the <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0893-4' target='_blank'>deconstructSigs</a> <a href='https://github.com/raerose01/deconstructSigs' target='_blank'>package</a>.
             </p>
@@ -96,8 +96,8 @@ R packages are generally installed from the central CRAN repository by using the
             <p class='blogtext' id='blogpage'>
 The principles for mutational signature analysis for human and mouse samples are of course identical. The only difference is which reference genome is used. The deconstructSigs framework has hard coded the reference genome, as opposed to setting it as a parameter. Therefore, the only changes required to the source code are the following lines of the `mut.to.sigs.input.R` file:
             </p>
-           
-            
+
+
              <pre class="prettyprint lang-r">
 ## Line 65:
 ## From:
@@ -123,11 +123,11 @@ The principles for mutational signature analysis for human and mouse samples are
 ## To:
   mut$context = BSgenome::getSeq(BSgenome.Mmusculus.UCSC.mm10::Mmusculus, mut[,chr], mut[,pos]-1, mut[,pos]+1, as.character = T
 </pre>
-            
+
             <p class='blogtext' id='blogpage'>
               OPTIONAL step: I prefer the chart aesthetic found in the original WTSI mutational signature framework to that <a href='https://raw.githubusercontent.com/raerose01/deconstructSigs/master/inst/extdata/plotSignatures.png'>found in the deconstructSigs framework</a> and have therefore made a few changes to the plotting.R file in order to arrive at the figure shown at the end of this post:
             </p>
-            
+
             <pre class="prettyprint lang-r">
 ## Change colour of horizontal background lines
 ## Lines 76 and 83
@@ -171,11 +171,11 @@ Comment out/remove lines 77, 84 and 91
 ## To:
   graphics::barplot(diff_plotting$fraction, names.arg = diff_plotting$full_context, cex.names = 0.7, las = 2, col = factor(diff_plotting$mutation), ylim = c(-y_limit, y_limit), border = 'black', space = 0.3, main = paste("error = ", error_summed, sep = ""), ylab = 'fraction', add = TRUE, col.ticks=rgb(0,0,0,0))
 </pre>
-            
+
             <p class='blogtext' id='blogpage'>
               The package is now compatible with mouse sequence data. In order to install the package and the required dependencies, open your R console and enter the following:
             </p>
-            
+
             <pre class="prettyprint lang-r">
 install.packages('devtools')
 source("https://bioconductor.org/biocLite.R")
@@ -185,33 +185,33 @@ library(devtools)
 install('/path/to/deconstructSigs-master')
 library(deconstructSigs)
 </pre>
-            
+
             <p class='blogtext' id='blogpage'>
                 From here on out, usage of the deconstructSigs package is best explained by the <a href=https://github.com/raerose01/deconstructSigs/blob/master/README.md>deconstructSigs GitHub page</a>. Nonetheless, for a quick example of a script for running it:
             </p>
-            
+
             <pre class="prettyprint lang-r">
 # Read variant lists (skip appropriate number of lines if read in as a .vcf file))
 S123_14_6_table<-read.table("/christian/Output/SnpSiftExtracted/S123_14_6.txt", sep='\t')
 
-# Create data frame of variant lists in the long format with columns for sample name 
+# Create data frame of variant lists in the long format with columns for sample name
 # chromosome number, variant position/coordinate, reference and alternate bases.
 df<-data.frame(sample=c(rep('S123_14_6', times=(length(S123_14_6_table$V3)))),
                chr=S123_14_6_table$V1, pos=S123_14_6_table$V2, ref=S123_14_6_table$V3,
                alt=S123_14_6_table$V4)
 
 ## Create input to whichSignatures
-sigs.input <- mut.to.sigs.input(mut.ref = df, 
-                                sample.id = "sample", 
-                                chr = "chr", 
-                                pos = "pos", 
-                                ref = "ref", 
+sigs.input <- mut.to.sigs.input(mut.ref = df,
+                                sample.id = "sample",
+                                chr = "chr",
+                                pos = "pos",
+                                ref = "ref",
                                 alt = "alt")
-                                
+
 ## Create mutational signature chart
-wchSig = whichSignatures(tumor.ref = sigs.input, 
-                         signatures.ref = signatures.cosmic, 
-                         sample.id = 'S123_14_6', 
+wchSig = whichSignatures(tumor.ref = sigs.input,
+                         signatures.ref = signatures.cosmic,
+                         sample.id = 'S123_14_6',
                          contexts.needed = TRUE,
                          tri.counts.method = 'default')
 
@@ -222,21 +222,21 @@ dev.off()
             <p class='blogtext' id='blogpage'>
             If everything goes according to plan, the resulting chart will look something like this:
             </p>
-            
+
             <img class='blogimg' src='../assets/images/S123_14_6.deconstructSigs.png' alt='mutational signature chart from mouse tumor from deconstructSigs' style='width: 750px; height: 750px;'>
-            
+
             <p id='posteddate'>
             Posted: 27.07.2016
             </p>
-        </article>    
+        </article>
     </body>
-        
+
     <footer>
         <p class="blogtext">
             <a href="mailto:clfougner@gmail.com">
                 <img src="/assets/images/MailIcon.svg", style="width:30px; height: 30px;", alt="Email" class="footerimg">
             </a>
-            
+
             <a href="https://linkedin.com/in/clfougner">
                 <img src="/assets/images/LinkedInIcon.png", style="width:30px; height: 30px;", alt="LinkedIn" class="footerimg">
             </a>
@@ -244,19 +244,12 @@ dev.off()
             <a href="https://twitter.com/CLFougner">
                 <img src="/assets/images/twittericon.png", style="width=30px; height: 30px;", alt="Twitter" class="footerimg">
             </a>
-            
+
             <a href="https://www.instagram.com/clfougner/">
                 <img src="/assets/images/instagramIcon.jpg", style="width:30px; height:30px; margin-left:-3px;", alt="Instagram" class="footerimg">
             </a>
         </p>
-        
-        
-        <p class="blogtext" style="clear: both;">
-      <br>
-    
-            Copyright &copy; Christian Fougner <script type="text/javascript">document.write(new Date().getFullYear());</script>
-        </p>
-  
+
     </footer>
 
 </html>

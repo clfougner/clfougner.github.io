@@ -66,7 +66,7 @@ table {
 */
 
 html{
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background-color:#fdfdfd;
 }
 
@@ -76,10 +76,10 @@ p {
     font-size:18px;
     color:#333;
     font-family: "Georgia";
-} 
+}
 
 header{
-    
+
 }
 
 body{
@@ -152,7 +152,7 @@ a:active{
 }
 
 .herotitle a:hover{
-   text-decoration:none !important;   
+   text-decoration:none !important;
 }
 
 .navtext{
@@ -168,10 +168,10 @@ a:active{
 }
 
 .navtext a{
-    display: inline-block;     
-    position: relative;    
-    z-index: 1;     
-    padding: 15px;     
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 15px;
 }
 
 @media all and (max-width:760px){
@@ -228,7 +228,7 @@ a:active{
     background-color: #f1f1f1;
     font-family: Consolas, monaco, monospace;
     margin-right: 0%;
-    
+
 }
 
 /*
@@ -263,7 +263,7 @@ a:active{
     margin: 0 auto;
     display:block;
     width:750px;
-    
+
 }
 }
 
@@ -315,7 +315,7 @@ hr{
     margin-right:30%;
     margin-bottom: 10px;
     color: grey;
-    border-style: solid;   
+    border-style: solid;
 }
 
 b{
@@ -353,7 +353,7 @@ textarea{
     padding-right: 1rem;
     padding-top: 1rem;
     width:80%;
-    max-width: 760px; 
+    max-width: 760px;
 }
 
 button{
@@ -365,9 +365,9 @@ button{
     margin-top: 10px;
     margin-right: 50px;
     padding:5px 10px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size:12px;
-    
+
 }
 
 button:hover{
@@ -408,7 +408,7 @@ ul.topnav li.icon {
 }
 
 ul.topnav li.icon a:hover{
-    text-decoration:none !important;   
+    text-decoration:none !important;
 }
 
 /* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Home"). Show the list item that contains the link to open and close the topnav (li.icon) */
@@ -444,8 +444,8 @@ ul.topnav li.icon a:hover{
 
 
 ul.topnav.responsive:not(:first-child){
-   
+
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 5px; /* Place content 60px from the top */
-    transition: 0.3s; 
+    transition: 0.3s;
 }
