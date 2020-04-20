@@ -1,7 +1,7 @@
 Options +MultiViews
 Options +Indexes
 
-Redirect 301 / https://shinyibv02.uio.no/panorama/
+Redirect 301 /page.html https://shinyibv02.uio.no/panorama/
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
