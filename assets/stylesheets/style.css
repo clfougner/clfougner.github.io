@@ -1,6 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
-  License: none (public domain)
-*/
 
 /* Reset everything*/
 html, body, div, span, applet, object, iframe,
@@ -40,23 +37,16 @@ ol, ul {
 blockquote, q {
   quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-::selection {
-    background-color: #d8217d;
-    color: #fff;
-}
-::-moz-selection {
-    background-color: #d8217d;
-    color: #fff;
 }
 
 /*
